@@ -1,10 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Caching.Memory;
-using smestralka.DTOs;
-using smestralka.Models;
+using SemestralniPraceSTIN.DTOs;
+using SemestralniPraceSTIN.Models;
 using System.Text.Json;
 
-namespace smestralka.Services
+namespace SemestralniPraceSTIN.Services
 {
     public class ExchangeRateService
     {

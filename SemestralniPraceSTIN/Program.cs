@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
-using smestralka.Models;
-using smestralka.Services;
+using SemestralniPraceSTIN.Models;
+using SemestralniPraceSTIN.Services;
 using System.Text;
 
 
