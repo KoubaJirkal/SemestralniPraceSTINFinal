@@ -1,0 +1,6 @@
+@SemestralniPraceSTIN_HostAddress = http://localhost:5010
+
+GET {{SemestralniPraceSTIN_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
