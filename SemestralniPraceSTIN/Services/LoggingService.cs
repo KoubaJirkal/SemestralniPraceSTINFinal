@@ -1,6 +1,6 @@
-﻿using smestralka.Models;
+﻿using SemestralniPraceSTIN.Models;
 
-namespace smestralka.Services
+namespace SemestralniPraceSTIN.Services
 {
     public class LoggingService
     {

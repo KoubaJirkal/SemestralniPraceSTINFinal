@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using smestralka.DTOs;
-using smestralka.Models;
+using SemestralniPraceSTIN.DTOs;
+using SemestralniPraceSTIN.Models;
 
-namespace smestralka.Controllers
+namespace SemestralniPraceSTIN.Controllers
 {
 
     // User settings endpoint

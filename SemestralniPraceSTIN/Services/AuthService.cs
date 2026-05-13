@@ -1,10 +1,10 @@
 ﻿using Microsoft.IdentityModel.Tokens;
-using smestralka.Models;
+using SemestralniPraceSTIN.Models;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 
-namespace smestralka.Services
+namespace SemestralniPraceSTIN.Services
 {
     // Authentication logic
     public class AuthService

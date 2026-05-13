@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using smestralka.Services;
+using SemestralniPraceSTIN.Services;
 
-namespace smestralka.Controllers
+namespace SemestralniPraceSTIN.Controllers
 {
 
     // Historical exchange rates endpoint

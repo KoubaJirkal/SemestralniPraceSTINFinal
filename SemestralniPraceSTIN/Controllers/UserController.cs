@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using smestralka.Models;
+using SemestralniPraceSTIN.Models;
 
-namespace smestralka.Controllers
+namespace SemestralniPraceSTIN.Controllers
 {
     [Authorize]
     [ApiController]

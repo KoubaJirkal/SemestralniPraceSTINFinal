@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace smestralka.Models
+namespace SemestralniPraceSTIN.Models
 {
     public class AppDbContext : DbContext
     {

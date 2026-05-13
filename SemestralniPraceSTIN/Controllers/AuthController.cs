@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using smestralka.DTOs;
-using smestralka.Services;
+using SemestralniPraceSTIN.DTOs;
+using SemestralniPraceSTIN.Services;
 
-namespace smestralka.Controllers
+namespace SemestralniPraceSTIN.Controllers
 {
     [ApiController]
     [Route("api/auth")]
