@@ -1,4 +1,4 @@
-﻿namespace smestralka.DTOs
+﻿namespace SemestralniPraceSTIN.DTOs
 {
     public class UserSettingsDto
     {

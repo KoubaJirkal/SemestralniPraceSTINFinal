@@ -257,5 +257,60 @@ namespace SemestralniPraceSTIN.Tests
 
             Assert.IsType<BadRequestResult>(result);
         }
+        [Fact]
+        public async Task GetAverage_ReturnsBadRequest_WhenServiceReturnsNull()
+        {
+            var mock =
+                new Mock<ExchangeRateService>(
+                    null!, null!, null!, null!);
+
+            mock.Setup(x =>
+                x.GetAverageRates(
+                    It.IsAny<string>(),
+                    It.IsAny<string>(),
+                    It.IsAny<string>(),
+                    It.IsAny<string>()))
+                .ReturnsAsync((List<AverageRateDto>?)null);
+
+            var controller =
+                new RatesController(mock.Object);
+
+            var result =
+                await controller.GetAverage(
+                    "2025-01-01",
+                    "2025-01-02",
+                    "EUR",
+                    "USD");
+
+            Assert.IsType<BadRequestObjectResult>(result);
+        }
+        [Fact]
+        public async Task GetHistory_ReturnsBadRequest_WhenServiceReturnsNull()
+        {
+            var mock =
+                new Mock<ExchangeRateService>(
+                    null!, null!, null!, null!);
+
+            mock.Setup(x =>
+                x.GetHistoricalRates(
+                    It.IsAny<string>(),
+                    It.IsAny<string>(),
+                    It.IsAny<string>(),
+                    It.IsAny<string>()))
+                .ReturnsAsync((HistoricalRateResponse?)null);
+
+            var controller =
+                new RatesController(mock.Object);
+
+            var result =
+                await controller.GetHistory(
+                    "2025-01-01",
+                    "2025-01-02",
+                    "EUR",
+                    "USD");
+
+            Assert.IsType<BadRequestObjectResult>(result);
+        }
+
     }
 }

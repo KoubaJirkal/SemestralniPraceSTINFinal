@@ -1035,6 +1035,128 @@ namespace SemestralniPraceSTIN.Tests
 
             Assert.Null(result);
         }
+        [Fact]
+        public async Task GetCurrencies_ReturnsNull_WhenApiFails()
+        {
+            var handler =
+                new FakeHttpMessageHandler(
+                    "",
+                    HttpStatusCode.InternalServerError);
+
+            var httpClient =
+                new HttpClient(handler);
+
+            var options =
+                new DbContextOptionsBuilder<AppDbContext>()
+                .UseInMemoryDatabase(Guid.NewGuid().ToString())
+                .Options;
+
+            var db =
+                new AppDbContext(options);
+
+            var cache =
+                new MemoryCache(new MemoryCacheOptions());
+
+            var logging =
+                new LoggingService(db);
+
+            var service =
+                new ExchangeRateService(
+                    httpClient,
+                    logging,
+                    cache,
+                    db);
+
+            var result =
+                await service.GetCurrencies();
+
+            Assert.Null(result);
+        }
+
+        [Fact]
+        public async Task GetHistoricalRates_ReturnsNull_WhenJsonInvalid()
+        {
+            var handler =
+                new FakeHttpMessageHandler(
+                    "invalid json",
+                    HttpStatusCode.OK);
+
+            var httpClient =
+                new HttpClient(handler);
+
+            var options =
+                new DbContextOptionsBuilder<AppDbContext>()
+                .UseInMemoryDatabase(Guid.NewGuid().ToString())
+                .Options;
+
+            var db =
+                new AppDbContext(options);
+
+            var cache =
+                new MemoryCache(new MemoryCacheOptions());
+
+            var logging =
+                new LoggingService(db);
+
+            var service =
+                new ExchangeRateService(
+                    httpClient,
+                    logging,
+                    cache,
+                    db);
+
+            var result =
+                await service.GetHistoricalRates(
+                    "EUR",
+                    "USD",
+                    "2025-01-01",
+                    "2025-01-02");
+
+            Assert.Null(result);
+        }
+
+        [Fact]
+        public async Task GetAverageRates_ReturnsNull_WhenJsonInvalid()
+        {
+            var handler =
+                new FakeHttpMessageHandler(
+                    "invalid json",
+                    HttpStatusCode.OK);
+
+            var httpClient =
+                new HttpClient(handler);
+
+            var options =
+                new DbContextOptionsBuilder<AppDbContext>()
+                .UseInMemoryDatabase(Guid.NewGuid().ToString())
+                .Options;
+
+            var db =
+                new AppDbContext(options);
+
+            var cache =
+                new MemoryCache(new MemoryCacheOptions());
+
+            var logging =
+                new LoggingService(db);
+
+            var service =
+                new ExchangeRateService(
+                    httpClient,
+                    logging,
+                    cache,
+                    db);
+
+            var result =
+                await service.GetAverageRates(
+                    "2025-01-01",
+                    "2025-01-02",
+                    "EUR",
+                    "USD");
+
+            Assert.Null(result);
+        }
+
     }
 
 }
