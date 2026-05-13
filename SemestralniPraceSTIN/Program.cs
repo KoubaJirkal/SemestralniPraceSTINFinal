@@ -41,12 +41,8 @@ builder.Services.AddSwaggerGen(options =>
     });
 });
 builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseSqlServer(
-        builder.Configuration.GetConnectionString("DefaultConnection"),
-        sqlOptions =>
-        {
-            sqlOptions.EnableRetryOnFailure();
-        }));
+    options.UseSqlite("Data Source=app.db"));
+
 builder.Services.AddScoped<LoggingService>();
 
 builder.Services.AddScoped<AuthService>();
