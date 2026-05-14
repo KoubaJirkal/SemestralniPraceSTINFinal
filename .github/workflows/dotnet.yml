@@ -37,7 +37,7 @@ jobs:
         reportgenerator \
         -reports:**/coverage.cobertura.xml \
         -targetdir:coveragereport \
-        -reporttypes:Html;MarkdownSummary
+        "-reporttypes:Html;MarkdownSummary"
 
     - name: Add coverage to summary
       run: cat coveragereport/Summary.md >> $GITHUB_STEP_SUMMARY
